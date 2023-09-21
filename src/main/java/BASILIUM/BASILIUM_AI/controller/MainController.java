@@ -35,13 +35,12 @@ public class MainController {
     @GetMapping("/getAiService")
     public ResponseEntity<byte[]> uploadProduct(@RequestParam String strInfos, @RequestParam("files")MultipartFile[] files){
 
-        System.out.println("request 들어왔음");
+        System.out.println("request");
         Path path;
         try{
             JsonNode rootNode = objectMapper.readTree(strInfos);
             String userId =rootNode.get("userId").asText();
             String productId = rootNode.get("productId").asText();
-            System.out.println("request 들어왔음1");
             path = mainService.aiModelService(userId, productId, files);
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);

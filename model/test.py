@@ -116,7 +116,7 @@ def test():
         save_dir, border, window_size = opt.output_path, 0, 8
         os.makedirs(save_dir, exist_ok=True)
     else:
-        save_dir, border, window_size = opt.output_path + f'_denoise_{opt.noise}', 0, 128
+        save_dir, border, window_size = opt.output_path, 0, 128
         os.makedirs(save_dir, exist_ok=True)
 
     start_epoch, epoch_iter = 1, 0

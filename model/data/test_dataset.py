@@ -53,7 +53,7 @@ class TestDataset(Dataset):
         cloth_tensor = transform(cloth)
 
         edge = cv2.cvtColor(cloth, cv2.COLOR_BGR2GRAY)
-        _, edge = cv2.threshold(edge, 220, 255, cv2.THRESH_BINARY_INV)
+        _, edge = cv2.threshold(edge, 245, 255, cv2.THRESH_BINARY_INV)
         edge_tensor = transform_edge(edge)
 
         input_dict = { 'image': image_tensor,'clothes': cloth_tensor, 'edge': edge_tensor, 'p_name':self.image_path[index].split('/')[-1]}

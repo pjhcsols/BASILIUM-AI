@@ -40,6 +40,6 @@ out/
 ### AI ###
 /model/model_zoo
 /model/results
-/model/dataset
+# /model/dataset
 /model/log.txt
 *.pyc

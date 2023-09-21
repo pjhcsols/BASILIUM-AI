@@ -45,7 +45,7 @@ public class MainService {
     }
 
     public Path callAiModel(){
-        System.out.println("파이썬 파일 ??");
+        System.out.println("Call AI Model");
         ProcessBuilder builder = new ProcessBuilder("python",pythonFilePath);
         builder.redirectErrorStream(true);
         Process process;
@@ -57,7 +57,7 @@ public class MainService {
             return null;
         }
         try {
-            process.waitFor(15, TimeUnit.SECONDS);
+            process.waitFor(60, TimeUnit.SECONDS);
         }catch (InterruptedException e){
             return null;
         }

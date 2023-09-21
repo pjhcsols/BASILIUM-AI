@@ -77,7 +77,7 @@ class SROptions:
     def initialize(parser):
         parser.add_argument('--task', type = str, default = 'real_sr')
         parser.add_argument('--scale', type = int, default = 4)
-        parser.add_argument('--noise', type = int, default = 0)
+        parser.add_argument('--noise', type = int, default = 25)
         parser.add_argument('--jpeg', type = int, default = 40)
         parser.add_argument('--training_patch_size', type = int, default = 128)
         parser.add_argument('--large_model', type = int, default = 1)
