@@ -21,8 +21,8 @@ class TestOptions:
         self.parser.add_argument('--input_nc', type=int, default=3, help='# of input image channels')
         self.parser.add_argument('--output_nc', type=int, default=3, help='# of output image channels')
 
-        self.parser.add_argument('--input_path', type=str, default='/home/woo/Desktop/job/project/VITON/test/datasets') 
-        self.parser.add_argument('--output_path', type = str, default = '/home/woo/Desktop/job/project/VITON/test/results')
+        self.parser.add_argument('--input_path', type=str, default='/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/dataset') 
+        self.parser.add_argument('--output_path', type = str, default = '/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/results')
 
         self.parser.add_argument('--resize_or_crop', type=str, default='scale_width', help='scaling and cropping of images at load time [resize_and_crop|crop|scale_width|scale_width_and_crop]')
         self.parser.add_argument('--serial_batches', action='store_true', help='if true, takes images in order to make batches, otherwise takes them randomly')        
@@ -69,8 +69,8 @@ class TestOptions:
 
 class VitonOptions:
     def initialize(parser):
-        parser.add_argument('--warp_model_checkpoint', type=str, default='/home/woo/Desktop/job/project/VITON/test/model_zoo/PFAFN_warp_epoch_101.pth', help='load the pretrained model from the specified location')
-        parser.add_argument('--gen_model_checkpoint', type=str, default='/home/woo/Desktop/job/project/VITON/test/model_zoo/PFAFN_gen_epoch_101.pth', help='load the pretrained model from the specified location')
+        parser.add_argument('--warp_model_checkpoint', type=str, default='/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/model_zoo/PFAFN_warp_epoch_101.pth', help='load the pretrained model from the specified location')
+        parser.add_argument('--gen_model_checkpoint', type=str, default='/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/model_zoo/PFAFN_gen_epoch_101.pth', help='load the pretrained model from the specified location')
 
 
 class SROptions:
@@ -81,9 +81,9 @@ class SROptions:
         parser.add_argument('--jpeg', type = int, default = 40)
         parser.add_argument('--training_patch_size', type = int, default = 128)
         parser.add_argument('--large_model', type = int, default = 1)
-        parser.add_argument('--sr_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/test/model_zoo/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN.pth')
+        parser.add_argument('--sr_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/model_zoo/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN.pth')
         parser.add_argument('--tile', type = bool, default = None)
         parser.add_argument('--tile_overlap', type = int, default = 32)
-        parser.add_argument('--denoise50_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/test/model_zoo/005_colorDN_DFWB_s128w8_SwinIR-M_noise50.pth')
-        parser.add_argument('--denoise25_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/test/model_zoo/005_colorDN_DFWB_s128w8_SwinIR-M_noise25.pth')
-        parser.add_argument('--denoise15_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/test/model_zoo/005_colorDN_DFWB_s128w8_SwinIR-M_noise15.pth')
+        parser.add_argument('--denoise50_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/model_zoo/005_colorDN_DFWB_s128w8_SwinIR-M_noise50.pth')
+        parser.add_argument('--denoise25_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/model_zoo/005_colorDN_DFWB_s128w8_SwinIR-M_noise25.pth')
+        parser.add_argument('--denoise15_model_checkpoint', type = str, default = '/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/model_zoo/005_colorDN_DFWB_s128w8_SwinIR-M_noise15.pth')

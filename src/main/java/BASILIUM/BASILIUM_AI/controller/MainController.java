@@ -3,6 +3,7 @@ package BASILIUM.BASILIUM_AI.controller;
 import BASILIUM.BASILIUM_AI.service.MainService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
 
+@Slf4j
 @RestController
 @RequestMapping("/basiliumAi")
 public class MainController {
@@ -32,11 +34,14 @@ public class MainController {
 
     @GetMapping("/getAiService")
     public ResponseEntity<byte[]> uploadProduct(@RequestParam String strInfos, @RequestParam("files")MultipartFile[] files){
+
+        System.out.println("request 들어왔음");
         Path path;
         try{
             JsonNode rootNode = objectMapper.readTree(strInfos);
             String userId =rootNode.get("userId").asText();
             String productId = rootNode.get("productId").asText();
+            System.out.println("request 들어왔음1");
             path = mainService.aiModelService(userId, productId, files);
         } catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
