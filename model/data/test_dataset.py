@@ -2,7 +2,6 @@ import os.path
 from torch.utils.data import Dataset
 import torchvision.transforms as transforms
 import cv2
-import linecache
 import numpy as np
 import random
 
@@ -20,7 +19,7 @@ class TestDataset(Dataset):
         self.fine_height=256
         self.fine_width=192
 
-        self.text = './test_pairs.txt'
+        self.text = '/home/woo/Desktop/job/project/VITON/BASILIUM-AI/model/test_pairs.txt'
 
         self.image_dir = os.path.join(opt.input_path, opt.phase + '_img')
         self.clothes_dir = os.path.join(opt.input_path, opt.phase + '_clothes')
@@ -54,7 +53,7 @@ class TestDataset(Dataset):
         cloth_tensor = transform(cloth)
 
         edge = cv2.cvtColor(cloth, cv2.COLOR_BGR2GRAY)
-        _, edge = cv2.threshold(edge, 245, 255, cv2.THRESH_BINARY_INV)
+        _, edge = cv2.threshold(edge, 220, 255, cv2.THRESH_BINARY_INV)
         edge_tensor = transform_edge(edge)
 
         input_dict = { 'image': image_tensor,'clothes': cloth_tensor, 'edge': edge_tensor, 'p_name':self.image_path[index].split('/')[-1]}
