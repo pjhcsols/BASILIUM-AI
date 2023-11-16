@@ -32,7 +32,7 @@ public class MainController {
         this.mainService = mainService;
     }
 
-    @GetMapping("/getAiService")
+    @PostMapping("/getAiService")
     public ResponseEntity<byte[]> uploadProduct(@RequestParam String strInfos, @RequestParam("files")MultipartFile[] files){
 
         System.out.println("request");
